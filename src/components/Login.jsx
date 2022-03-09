@@ -1,7 +1,10 @@
 import React from "react";
-import "./login.css";
+import "./Login.css";
 import { useState } from "react";
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import { Input  } from "@mui/material";
+import "firebase/compat/firestore";
 import { auth } from "../firebase.js";
 
 function Login() {
@@ -21,35 +24,62 @@ function Login() {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .catch((error) => alert(error.message));
-    window.alert("Successfully created new account with email: " + email);
+      .catch((error) => alert(error.message))
+      .then(() => {
+        if (auth.currentUser) {
+          document
+            .appendChild
+            // <Alert severity="success" color="info">
+            //   User created with email: {email}
+            // </Alert>
+            ();
+        }
+      });
   };
   return (
     <div className="login">
       <div className="login-container">
         <h1>Sign in</h1>
         <form>
-          <h5>Email</h5>
-          <input
-            type="text"
-            className="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <h5>Password</h5>
-          <input
-            type="password"
-            className="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="singInButton" type="submit" onClick={signIn}>
-            Sign In
-          </button>
-          <button onClick={signInWithGoogle}>Sign in with google</button>
-          <button className="registerButton" onClick={register}>
-            Create New Account
-          </button>
+          <div className="inputs">
+            <h5 className="ms-1">Email</h5>
+            <Input
+              type="text"
+              value={email}
+              className="mb-3 emailInput ms-1"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <h5 className="ms-1">Password</h5>
+            <Input
+              type="password"
+              className="mb-3 passInput ms-1"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="buttons">
+            <button
+              className=" mt-4 btn btn-primary m-2"
+              type="submit"
+              onClick={signIn}
+            >
+              Sign In
+            </button>
+            <button
+              className="btn btn-primary m-2"
+              onClick={signInWithGoogle}
+              type="button"
+            >
+              Sign in with google
+            </button>
+            <button
+              className="btn btn-outline-secondary m-4 "
+              type="button"
+              onClick={register}
+            >
+              Create New Account
+            </button>
+          </div>
         </form>
       </div>
     </div>
