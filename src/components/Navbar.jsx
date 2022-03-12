@@ -4,19 +4,43 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import { auth } from "../firebase.js";
+import './styles/Navbar.css';
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Home", "Contact Us", "About US", "Locations"];
 
 const ResponsiveAppBar = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [user] = useAuthState(auth);
+  const history = useHistory();
+  const handleAuthentication = () => {
+    if (user) {
+      if (window.confirm("Are you sure you want to sign out?"))
+        auth.signOut().then((auth) => {
+          history.push("/welcome");
+        });
+    }
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -28,13 +52,13 @@ const ResponsiveAppBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
+  const handleMenuItems = (page) => {};
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar position="static" style={{ background: "#2E3B55" }}>
+    <AppBar position="static" style={{ background: "" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -61,30 +85,6 @@ const ResponsiveAppBar = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
           <Typography
             variant="h6"
@@ -94,11 +94,15 @@ const ResponsiveAppBar = () => {
           >
             LOGO
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                size="small"
+                variant="contained"
+                disableElevation
+                onClick={() => handleCloseNavMenu(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
@@ -107,10 +111,30 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box>
-            <Button variant="outlined" style={{ background: "white" }}>
-              Sign in{" "}
-            </Button>
+            <Link to={!user && "/login"} className="links">
+              <Button
+                variant="contained"
+                disableElevation
+                onClick={handleAuthentication}
+              >
+                {user ? "Sign Out" : "Sign In"}
+              </Button>
+            </Link>
           </Box>
+          {user && (
+            <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </div>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

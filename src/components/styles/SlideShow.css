@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  z-index: 0;
+  padding: 0;
+}
+.wdt {
+  width: 80% !important;
+}
+.imgdetails {
+  width: 100% !important;
+  height: 90vh ;
+}
+
+.imgpad {
+  width: 99vw;
+}

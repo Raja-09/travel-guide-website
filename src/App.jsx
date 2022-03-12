@@ -1,15 +1,29 @@
 import "./App.css";
-import { auth } from "./firebase.js";
-import { useAuthState } from "react-firebase-hooks/auth";
 import Login from "./components/Login.jsx";
 import Home from "./components/Home";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Welcome from "./components/Welcome";
+import Test from "./components/Test";
+
 function App() {
-  const [user] = useAuthState(auth);
   return (
     <div>
-      {/* <Login /> */}
-      {user ? <Home /> : <Login />}
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/test">
+            <Test />
+          </Route>
+          <Route path="/">
+            <Welcome />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

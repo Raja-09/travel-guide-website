@@ -1,40 +1,43 @@
 import React from "react";
-import "./Login.css";
+import "./styles/Login.css";
 import { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { Input  } from "@mui/material";
+import { Input } from "@mui/material";
+import { useHistory } from "react-router-dom";
 import "firebase/compat/firestore";
 import { auth } from "../firebase.js";
 
 function Login() {
   const [email, setEmail] = useState("");
+  const history = useHistory();
   const [password, setPassword] = useState("");
   function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+    auth
+      .signInWithPopup(provider)
+      .then((auth) => {
+        history.push("/home");
+      })
+      .catch((error) => alert(error.message));
   }
   const signIn = (e) => {
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/home");
+      })
       .catch((error) => alert(error.message));
   };
   const register = (e) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .catch((error) => alert(error.message))
-      .then(() => {
-        if (auth.currentUser) {
-          document
-            .appendChild
-            // <Alert severity="success" color="info">
-            //   User created with email: {email}
-            // </Alert>
-            ();
-        }
-      });
+      .then((auth) => {
+        history.push("/home");
+      })
+      .catch((error) => alert(error.message));
   };
   return (
     <div className="login">
