@@ -17,7 +17,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../firebase.js";
 import "./styles/Navbar.css";
 
-const pages = ["Home", "Contact Us", "About US", "Travel"];
+const pages = ["Home", "Travel", "About US", "COntact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -117,7 +117,11 @@ const ResponsiveAppBar = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt="" className="userIcon" />
+                ) : (
+                  <AccountCircle />
+                )}
               </IconButton>
               <Menu
                 id="menu-appbar"
