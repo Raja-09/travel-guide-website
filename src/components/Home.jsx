@@ -10,8 +10,7 @@ import "firebase/compat/firestore";
 function Home() {
   return (
     <div className="Home">
-      <Navbar />
-
+      This is home page
     </div>
   );
 }

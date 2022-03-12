@@ -1,9 +1,13 @@
-.navbarME{
-    background-color: green;
+.navbarME {
+  background-color: green;
 }
-.logo-img{
-    width: 10px;
+.logo-img {
+  width: 10px;
 }
-.links{
-    text-decoration: none;
+.links {
+  text-decoration: none;
+  color: white;
+}
+.links:hover {
+  color: rgb(223, 223, 223);
 }

@@ -15,9 +15,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../firebase.js";
-import './styles/Navbar.css';
+import "./styles/Navbar.css";
 
-const pages = ["Home", "Contact Us", "About US", "Locations"];
+const pages = ["Home", "Contact Us", "About US", "Travel"];
 
 const ResponsiveAppBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,7 +29,7 @@ const ResponsiveAppBar = () => {
     if (user) {
       if (window.confirm("Are you sure you want to sign out?"))
         auth.signOut().then((auth) => {
-          history.push("/welcome");
+          history.push("/");
         });
     }
   };
@@ -37,63 +37,49 @@ const ResponsiveAppBar = () => {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const handleAccount = () => {
+    console.log("Account");
+    setAnchorEl(null);
+  };
+  const handleProfile = () => {
+    console.log("Profile");
+    history.push("/profile");
+    setAnchorEl(null);
+  };
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleMenuItems = (page) => {
+    if (page === "Home") {
+      history.push("/home");
+    }
   };
-  const handleMenuItems = (page) => {};
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const returnLink = () => {
+    if (!user) return "/login";
+    else return "/";
   };
-
   return (
-    <AppBar position="static" style={{ background: "" }}>
+    <AppBar position="static" style={{ position: "sticky" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            style={{
-              fontFamily: "Impact, Charcoal, sans-serif",
-              textDecoration: "underline",
-            }}
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            Tourism
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+          <Link to="/" className="links">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              style={{
+                fontFamily: "Impact, Charcoal, sans-serif",
+                textDecoration: "underline",
+              }}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <MenuIcon />
-            </IconButton>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-          >
-            LOGO
-          </Typography>
+              Tourism
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -102,7 +88,7 @@ const ResponsiveAppBar = () => {
                 size="small"
                 variant="contained"
                 disableElevation
-                onClick={() => handleCloseNavMenu(page)}
+                onClick={() => handleMenuItems(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
@@ -111,7 +97,7 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box>
-            <Link to={!user && "/login"} className="links">
+            <Link to={returnLink} className="links">
               <Button
                 variant="contained"
                 disableElevation
@@ -133,6 +119,24 @@ const ResponsiveAppBar = () => {
               >
                 <AccountCircle />
               </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleProfile}>Profile</MenuItem>
+                <MenuItem onClick={handleAccount}>My account</MenuItem>
+              </Menu>
             </div>
           )}
         </Toolbar>

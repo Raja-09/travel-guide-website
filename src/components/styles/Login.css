@@ -4,6 +4,17 @@
 }
 .login {
   height: 100vh;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+.logo{
+  margin-top: 40px;
+  text-decoration: underline;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 1000;
+  font-size:40px
 }
 .login-container {
   display: flex;
