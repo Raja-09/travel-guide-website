@@ -1,0 +1,21 @@
+.card{
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    /* flex-direction: row; */
+    min-width: 300px;
+    transition: 0.5s;
+
+}
+.card:hover{
+    box-shadow: 0px 0px 10px #000000;
+    background-color: whitesmoke;
+}
+.cardImage{
+    width: 290px;
+    height: 193.13px;
+    border-radius: 10px;
+}
+.viewButton{
+    width: 100%;
+}

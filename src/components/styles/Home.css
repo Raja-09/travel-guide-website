@@ -1,5 +1,6 @@
 .Home {
-  width: 100vw;
-  z-index: -1;
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }

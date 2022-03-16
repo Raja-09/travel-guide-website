@@ -7,6 +7,7 @@ function Profile() {
   return (
     <div>
       <h1>Profile</h1>
+      <h5>Logged in as {user?.displayName}</h5>
       <Link to="/home">
         <h2>Home</h2>
       </Link>

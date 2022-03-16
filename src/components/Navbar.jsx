@@ -6,16 +6,14 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import { Link, useHistory } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../firebase.js";
 import "./styles/Navbar.css";
+import { Alert } from "@mui/material";
 
 const pages = ["Home", "Travel", "About US", "COntact Us"];
 
@@ -63,7 +61,7 @@ const ResponsiveAppBar = () => {
     else return "/";
   };
   return (
-    <AppBar position="static" style={{ position: "sticky" }}>
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/" className="links">
@@ -118,7 +116,7 @@ const ResponsiveAppBar = () => {
                 color="inherit"
               >
                 {user.photoURL ? (
-                  <img src={user.photoURL} alt="" className="userIcon" />
+                  <img src={user.photoURL} className="userIcon" />
                 ) : (
                   <AccountCircle />
                 )}

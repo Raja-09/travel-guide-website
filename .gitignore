@@ -371,3 +371,6 @@ MigrationBackup/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/components/Test.jsx
+src/components/Test.jsx
+Test.jsx

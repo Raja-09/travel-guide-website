@@ -5,16 +5,16 @@
 .login {
   height: 100vh;
   position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.logo{
+.logo {
   margin-top: 40px;
   text-decoration: underline;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-weight: 1000;
-  font-size:40px
+  font-size: 40px;
 }
 .login-container {
   display: flex;
@@ -39,10 +39,16 @@
 .buttons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.alertBox {
+  position: absolute;
+  top: 90%;
+  width: 500px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
