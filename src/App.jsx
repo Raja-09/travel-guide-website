@@ -13,7 +13,6 @@ function App() {
     <div>
       <Router>
         <Switch>
-
           <Route path="/login">
             <Login />
           </Route>
@@ -30,7 +29,6 @@ function App() {
             <Route exact path={"/home/karnataka"}>
               <Karnataka />
             </Route>
-    
           </Route>
 
           <Route path="/profile">
@@ -41,7 +39,6 @@ function App() {
             <ResponsiveAppBar />
             <Welcome />
           </Route>
-
         </Switch>
       </Router>
     </div>

@@ -54,6 +54,15 @@ const ResponsiveAppBar = () => {
   const handleMenuItems = (page) => {
     if (page === "Home") {
       history.push("/home");
+      setTimeout(function () {
+        document.getElementById("home").click();
+      }, 100);
+    }
+    if (page === "Travel") {
+      history.push("/home");
+      setTimeout(function () {
+        document.getElementById("linkBtn").click();
+      }, 100);
     }
   };
   const returnLink = () => {
@@ -62,6 +71,8 @@ const ResponsiveAppBar = () => {
   };
   return (
     <AppBar position="sticky">
+      <a href="#" id="home"></a>
+      <a href="#travel" id="linkBtn"></a>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/" className="links">

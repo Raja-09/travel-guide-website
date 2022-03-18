@@ -9,20 +9,15 @@ function Card(props) {
     history.push(`/home/${name.toLowerCase()}`);
   };
   return (
-    <div className="card m-4 p-1">
+    <div className="card m-4 p-1" onClick={() => handleView(props.name)}>
       <div>
         <img src={props.photoUrl} alt="" className="cardImage" />
       </div>
-      <div className="cardName">{props.name}</div>
+      <hr />
+      <div className="cardName">
+        <b>{props.name}</b>
+      </div>
       <div className="cardDesc">{props.description}</div>
-
-      <Button
-        className="viewButton"
-        variant="contained"
-        onClick={() => handleView(props.name)}
-      >
-        View
-      </Button>
     </div>
   );
 }
