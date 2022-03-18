@@ -12,7 +12,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirm] = useState("");
-  const [open, setOpen] = React.useState(true);
   const [user] = useAuthState(auth);
   const history = useHistory();
   const handleSubmit = (e) => {
@@ -34,7 +33,9 @@ function Register() {
   if (!user)
     return (
       <div>
+        Register your account here by entering your details.
         <div className="reg-inputs">
+          <label htmlFor="">Name</label>
           <Input
             type="text"
             value={name}
@@ -42,6 +43,7 @@ function Register() {
             required
             onChange={(e) => setName(e.target.value)}
           />
+          <label htmlFor="">Email</label>
           <Input
             type="email"
             value={email}
@@ -49,6 +51,7 @@ function Register() {
             required
             onChange={(e) => setEmail(e.target.value)}
           />
+          <label htmlFor="">Password</label>
           <Input
             type="password"
             autoComplete="new-password"
@@ -56,6 +59,7 @@ function Register() {
             required
             onChange={(e) => setPassword(e.target.value)}
           />
+          <label htmlFor="">Confirm Password</label>
           <Input
             type="password"
             value={confirmPassword}
