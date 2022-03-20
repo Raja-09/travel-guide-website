@@ -2,18 +2,27 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase.js";
+import "./styles/Profile.css";
 function Profile() {
   const [user] = useAuthState(auth);
   return (
-    <div>
-      <h1>Profile</h1>
-      <h5>Logged in as {user?.displayName}</h5>
-      <Link to="/home">
-        <h2>Home</h2>
+    <div className="Profile">
+      <Link to = "/home">
+        <h1>Home</h1>
       </Link>
-      <p>
-        <img src="" alt="" />
-      </p>
+      {user.photoURL ? (
+        <img
+          className="defaultUserIcon"
+          src={user.photoURL}
+          style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+        />
+      ) : (
+        <img
+          src="https://png.pngitem.com/pimgs/s/150-1503945_transparent-user-png-default-user-image-png-png.png"
+          style={{ width: "100px", height: "100px", borderRadius: "50%" }}
+          className="defaultUserIcon"
+        />
+      )}
     </div>
   );
 }

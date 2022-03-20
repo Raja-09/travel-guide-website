@@ -126,8 +126,8 @@ const ResponsiveAppBar = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                {user.photoURL ? (
-                  <img src={user.photoURL} className="userIcon" />
+                {user?.photoURL ? (
+                  <img src={user?.photoURL} className="userIcon" />
                 ) : (
                   <AccountCircle />
                 )}

@@ -6,7 +6,8 @@ import Welcome from "./components/Welcome";
 import Profile from "./components/Profile";
 import ResponsiveAppBar from "./components/Navbar";
 import Register from "./components/Register";
-import Karnataka from "./components/Karnataka";
+import Map from "./components/Map";
+import Karnataka from "./components/Karnataka.jsx";
 
 function App() {
   return (
@@ -16,11 +17,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-
           <Route path="/register">
             <Register />
           </Route>
-
           <Route path="/home">
             <ResponsiveAppBar />
             <Route exact path={"/home"}>
@@ -29,10 +28,21 @@ function App() {
             <Route exact path={"/home/karnataka"}>
               <Karnataka />
             </Route>
+            <Route exact path={"/home/goa"}>
+              <Karnataka />
+            </Route>
+            <Route exact path={"/home/rajasthan"}>
+              <Karnataka />
+            </Route>
+            <Route exact path={"/home/kerala"}>
+              <Karnataka />
+            </Route>
           </Route>
-
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/test">
+            <Map />
           </Route>
 
           <Route path="/">

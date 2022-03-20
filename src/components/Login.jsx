@@ -3,12 +3,11 @@ import "./styles/Login.css";
 import { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { Alert, Button, Collapse, Input, Tooltip } from "@mui/material";
+import { Alert, Button, Input, Tooltip } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import "firebase/compat/firestore";
 import { auth } from "../firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -44,7 +43,13 @@ function Login() {
   if (!user)
     return (
       <div className="login">
-        <h3 className="logo">TOURISM</h3>
+        <h3
+          className="logo"
+          onClick={() => history.push("/")}
+          style={{ cursor: "pointer" }}
+        >
+          TOURISM
+        </h3>
         <div className="login-container">
           <h1>Sign in</h1>
           <form>
