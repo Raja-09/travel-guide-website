@@ -8,7 +8,7 @@ function StatePage(props) {
       <div className="state-container">
         <img className="state-image" src={props.stateImage} alt="" />
         <div className="state-heading">
-          { props.stateName ? props.stateName : "StateName here" } • India
+          {props.stateName ? props.stateName : "StateName here"} • India
         </div>
         <div className="state-wrapper">
           <div className="state-desc">{props.stateDesc}</div>

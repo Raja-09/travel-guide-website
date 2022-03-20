@@ -5,7 +5,7 @@
 .state-image {
   width: 100%;
   z-index: -1;
-  margin-bottom: -400px;
+  margin-bottom: -420px;
   mask-image: linear-gradient(
     to bottom,
     rgba(245, 245, 245, 1),
@@ -15,16 +15,43 @@
 .state-heading {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #1a73e8;
+  background-color: white;
+  width: fit-content;
+  padding: 40px;
+  padding-right: 10%;
+  border-bottom: 1px double lightgrey;
   margin-bottom: 0;
 }
 .state-desc {
   font-size: 1.5rem;
   margin-bottom: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
   background-color: white;
   height: fit-content;
 }
 .state-wrapper {
   height: 100vh;
   background-color: white;
+}
+.state-places-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #000;
+}
+.state-places {
+  border-top: 1px double lightgrey;
+  padding: 20px;
+  margin: 20px;
+}
+.state-places-list {
+  width: 100%;
 }

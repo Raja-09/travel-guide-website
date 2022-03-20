@@ -7,7 +7,7 @@ import Profile from "./components/Profile";
 import ResponsiveAppBar from "./components/Navbar";
 import Register from "./components/Register";
 import Map from "./components/Map";
-import Karnataka from "./components/Karnataka.jsx";
+import Karnataka from "./components/States/Karnataka.jsx";
 
 function App() {
   return (
