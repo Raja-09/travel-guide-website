@@ -6,9 +6,9 @@ import Welcome from "./components/Welcome";
 import Profile from "./components/Profile";
 import ResponsiveAppBar from "./components/Navbar";
 import Register from "./components/Register";
-import Map from "./components/Map";
 import Karnataka from "./components/States/Karnataka.jsx";
-
+import PlaceRoutes from "./routes/PlaceRoutes.jsx";
+import Places from "./components/Places";
 function App() {
   return (
     <div>
@@ -38,11 +38,16 @@ function App() {
               <Karnataka />
             </Route>
           </Route>
+          <Route exact path="/places">
+            <ResponsiveAppBar/>
+            <Places />
+          </Route>
+          <Route path="/places/*">
+            <ResponsiveAppBar />
+            <PlaceRoutes />
+          </Route>
           <Route path="/profile">
             <Profile />
-          </Route>
-          <Route path="/test">
-            <Map />
           </Route>
 
           <Route path="/">

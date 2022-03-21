@@ -22,7 +22,7 @@ function Karnataka() {
             </span>
           </div>
         }
-        placeVisit={["Bangalore", "Mysore", "Mangalore"]}
+        placeVisit={["Bangalore", "Mysore", "Hampi"]}
       />
     </div>
   );

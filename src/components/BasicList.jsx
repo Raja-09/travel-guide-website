@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 function BasicList(props) {
   const history = useHistory();
   const handleListClick = (item) => {
-    history.push(`/places/${item.toLowerCase()}`);
+    history.replace(`/places/${item.toLowerCase()}`);
   };
   const place = props.places;
   return (

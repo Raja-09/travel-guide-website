@@ -13,9 +13,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../firebase.js";
 import "./styles/Navbar.css";
-import { Alert } from "@mui/material";
 
-const pages = ["Home", "Travel", "About US", "COntact Us"];
+const pages = ["Home", "Travel", "Places", "About US", "COntact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,17 +37,13 @@ const ResponsiveAppBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleAccount = () => {
-    console.log("Account");
+  const handlePlaces = () => {
+    history.push("/myplaces");
     setAnchorEl(null);
   };
   const handleProfile = () => {
-    console.log("Profile");
     history.push("/profile");
     setAnchorEl(null);
-  };
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
   };
 
   const handleMenuItems = (page) => {
@@ -63,6 +58,9 @@ const ResponsiveAppBar = () => {
       setTimeout(function () {
         document.getElementById("linkBtn").click();
       }, 100);
+    }
+    if (page === "Places") {
+      history.push("/places");
     }
   };
   const returnLink = () => {
@@ -148,7 +146,7 @@ const ResponsiveAppBar = () => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleProfile}>Profile</MenuItem>
-                <MenuItem onClick={handleAccount}>My account</MenuItem>
+                <MenuItem onClick={handlePlaces}>My Places</MenuItem>
               </Menu>
             </div>
           )}
