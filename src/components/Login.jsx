@@ -48,7 +48,7 @@ function Login() {
           onClick={() => history.push("/")}
           style={{ cursor: "pointer" }}
         >
-          TOURISM
+          TRAVELLOPEDIA
         </h3>
         <div className="login-container">
           <h1>Sign in</h1>

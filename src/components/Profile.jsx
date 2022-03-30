@@ -1,15 +1,11 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
 import { auth } from "../firebase.js";
 import "./styles/Profile.css";
 function Profile() {
   const [user] = useAuthState(auth);
   return (
     <div className="Profile">
-      <Link to = "/home">
-        <h1>Home</h1>
-      </Link>
       {user.photoURL ? (
         <img
           className="defaultUserIcon"

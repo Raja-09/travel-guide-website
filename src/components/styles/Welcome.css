@@ -35,3 +35,24 @@
   color: #fff;
   padding: 0.5rem 0;
 }
+.contact {
+  margin: 50px;
+  width: 1000px;
+  font-weight: 800;
+}
+.textFields {
+  display: flex;
+  flex-direction: column;
+}
+.names {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.fname{
+  margin-right: 60px;
+  width: 500px;
+}
+.lname{
+  width: 500px;
+}

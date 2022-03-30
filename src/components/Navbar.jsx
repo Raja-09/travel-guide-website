@@ -13,6 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../firebase.js";
 import "./styles/Navbar.css";
+import { MenuItemUnstyled, MenuUnstyledContext } from "@mui/base";
 
 const pages = ["Home", "Travel", "Places", "About US", "COntact Us"];
 
@@ -67,6 +68,10 @@ const ResponsiveAppBar = () => {
     if (!user) return "/login";
     else return "/";
   };
+  const handleMouse = (e) => {
+    e.target.style.backgroundColor = "white";
+    e.target.style.cursor = "";
+  };
   return (
     <AppBar position="sticky">
       <a href="#" id="home"></a>
@@ -84,7 +89,7 @@ const ResponsiveAppBar = () => {
               }}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Tourism
+              Travellopedia
             </Typography>
           </Link>
 
@@ -145,6 +150,9 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+                <MenuItem sx={{ color: "#1a73e8",backgroundColor:"#1a73e8" }} onMouseOver={handleMouse}>
+                  {user.displayName}
+                </MenuItem>
                 <MenuItem onClick={handleProfile}>Profile</MenuItem>
                 <MenuItem onClick={handlePlaces}>My Places</MenuItem>
               </Menu>
