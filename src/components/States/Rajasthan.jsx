@@ -2,10 +2,10 @@ import React from "react";
 import StatePage from "../StatePage";
 import "../styles/StatePage.css";
 
-function Kerala() {
-  const name = "Kerala";
+function Rajasthan() {
+  const name = "Rajasthan";
   const image =
-    "https://images.newindianexpress.com/uploads/user/imagelibrary/2020/2/4/w900X450/Alleppey.jpg?w=400&dpr=2.6";
+    "https://hindi.cdn.zeenews.com/hindi/sites/default/files/2021/06/27/857610-rajasthan-unlock.gif";
 
   const visitLocationsData = [
     {
@@ -40,4 +40,4 @@ function Kerala() {
   );
 }
 
-export default Kerala;
+export default Rajasthan;

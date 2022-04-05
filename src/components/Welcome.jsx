@@ -83,7 +83,7 @@ function Welcome() {
           onClick={handleVideoChange}
         />
       </section>
-      <div className="contact">
+      <div className="contact" id="contact">
         <h3>Contact Us</h3>
         <div className="textFields">
           <div className="names">

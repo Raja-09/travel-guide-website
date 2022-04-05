@@ -2,10 +2,10 @@ import React from "react";
 import StatePage from "../StatePage";
 import "../styles/StatePage.css";
 
-function Kerala() {
-  const name = "Kerala";
+function Goa() {
+  const name = "Goa";
   const image =
-    "https://images.newindianexpress.com/uploads/user/imagelibrary/2020/2/4/w900X450/Alleppey.jpg?w=400&dpr=2.6";
+    "https://im.indiatimes.in/content/2021/Aug/Goa-copy_61150ebf21bc6.jpg?w=1092&h=558&cc=1";
 
   const visitLocationsData = [
     {
@@ -40,4 +40,4 @@ function Kerala() {
   );
 }
 
-export default Kerala;
+export default Goa;

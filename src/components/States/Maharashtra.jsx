@@ -2,10 +2,10 @@ import React from "react";
 import StatePage from "../StatePage";
 import "../styles/StatePage.css";
 
-function Kerala() {
-  const name = "Kerala";
+function Maharashtra() {
+  const name = "Maharashtra";
   const image =
-    "https://images.newindianexpress.com/uploads/user/imagelibrary/2020/2/4/w900X450/Alleppey.jpg?w=400&dpr=2.6";
+    "https://img.etimg.com/thumb/width-1200,height-575,imgsize-154635,resizemode-1,msid-81997160/news/india/maharashtra-mulling-full-lockdown-for-at-least-a-wk.jpg";
 
   const visitLocationsData = [
     {
@@ -40,4 +40,4 @@ function Kerala() {
   );
 }
 
-export default Kerala;
+export default Maharashtra;

@@ -15,7 +15,7 @@ import { auth } from "../firebase.js";
 import "./styles/Navbar.css";
 import { MenuItemUnstyled, MenuUnstyledContext } from "@mui/base";
 
-const pages = ["Home", "Travel", "Places", "About US", "COntact Us"];
+const pages = ["Home", "Travel", "Places", "About US", "Contact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -63,6 +63,12 @@ const ResponsiveAppBar = () => {
     if (page === "Places") {
       history.push("/places");
     }
+    if (page === "Contact Us") {
+      history.push("/");
+      setTimeout(() => {
+        document.getElementById("conBtn").click();
+      }, 100);
+    }
   };
   const returnLink = () => {
     if (!user) return "/login";
@@ -76,6 +82,8 @@ const ResponsiveAppBar = () => {
     <AppBar position="sticky">
       <a href="#" id="home"></a>
       <a href="#travel" id="linkBtn"></a>
+      <a href="#contact" id="conBtn"></a>
+
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/" className="links">
@@ -150,7 +158,10 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem sx={{ color: "#1a73e8",backgroundColor:"#1a73e8" }} onMouseOver={handleMouse}>
+                <MenuItem
+                  sx={{ color: "#1a73e8", backgroundColor: "#1a73e8" }}
+                  onMouseOver={handleMouse}
+                >
                   {user.displayName}
                 </MenuItem>
                 <MenuItem onClick={handleProfile}>Profile</MenuItem>

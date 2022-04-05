@@ -12,8 +12,12 @@ function Home() {
     return (
       <div className="Home">
         <div className="container">
-          <h1 className="text-center">Welcome to Travel App</h1>
-          </div>
+          <h1 className="text-center">
+            Hello ,{user.displayName} <span className="wavingHand">👋</span>
+            <br /> Welcome to Travellopedia
+          </h1>
+          <div className="homeDesc"></div>
+        </div>
         <div className="travel" id="travel">
           <div className="filler"></div>
           <Card
@@ -74,17 +78,9 @@ function Home() {
           />
           <Card
             photoUrl={
-              "https://static-blog.treebo.com/wp-content/uploads/2018/06/Punjab.jpg"
+              "https://static.india.com/wp-content/uploads/2018/08/maharashtra-1.jpg"
             }
-            name={"Punjab"}
-            description={"Karnataka is a state in India"}
-            key={Math.random()}
-          />
-          <Card
-            photoUrl={
-              "https://static-blog.treebo.com/wp-content/uploads/2018/06/Punjab.jpg"
-            }
-            name={"Punjab"}
+            name={"Maharashtra"}
             description={"Karnataka is a state in India"}
             key={Math.random()}
           />

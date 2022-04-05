@@ -1,6 +1,6 @@
 import React from "react";
-import BasicList from "./BasicList";
 import "./styles/StatePage.css";
+import TitlebarBelowImageList from "./TitleBarBelowImageList";
 
 function StatePage(props) {
   return (
@@ -15,7 +15,7 @@ function StatePage(props) {
           <div className="state-places">
             <div className="state-places-heading">Places to visit</div>
             <div className="state-places-list">
-              <BasicList places={props.placeVisit} />
+              <TitlebarBelowImageList itemData={props.visitLocationsData} />
             </div>
           </div>
         </div>
