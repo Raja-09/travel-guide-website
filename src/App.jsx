@@ -15,6 +15,7 @@ import Rajasthan from "./components/States/Rajasthan";
 import UttarPradesh from "./components/States/UttarPradesh";
 import Goa from "./components/States/Goa";
 import Maharashtra from "./components/States/Maharashtra";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div>
@@ -72,6 +73,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer/>
     </div>
   );
 }

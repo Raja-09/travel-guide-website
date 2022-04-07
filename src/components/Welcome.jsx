@@ -14,8 +14,8 @@ import video5 from "../videos/vid-5.mp4";
 import { Alert, Button, TextField } from "@mui/material";
 
 function Welcome() {
-  const [video, setVideo] = useState(video1);
   const vidArr = [video1, video2, video3, video4, video5];
+  const [video, setVideo] = useState(vidArr[0]);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -31,12 +31,17 @@ function Welcome() {
     }
     setVideo(vidArr[index + 1]);
   };
+  const changeVideo = () => {
+    let x = parseInt(Math.random() * 4);
+    console.log(x);
+  };
   const changeAlert = () => {
     setStatus("Query Submitted");
     setTimeout(() => {
       setStatus("");
     }, 3000);
   };
+
   async function handleSubmit(e) {
     e.preventDefault();
     let id = "";
@@ -151,6 +156,7 @@ function Welcome() {
           </Alert>
         ) : null}
       </div>
+      
     </div>
   );
 }

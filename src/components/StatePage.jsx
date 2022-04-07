@@ -13,7 +13,9 @@ function StatePage(props) {
         <div className="state-wrapper">
           <div className="state-desc">{props.stateDesc}</div>
           <div className="state-places">
-            <div className="state-places-heading">Places to visit</div>
+            <div className="state-places-heading">
+              Explore {props.stateName}{" "}
+            </div>
             <div className="state-places-list">
               <TitlebarBelowImageList itemData={props.visitLocationsData} />
             </div>
