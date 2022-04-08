@@ -5,9 +5,12 @@ import "firebase/compat/auth";
 import "./styles/Home.css";
 import "firebase/compat/firestore";
 import Card from "./Card.jsx";
+import AlertDialog from "./mui/AlertDialog.jsx";
+import { useHistory } from "react-router-dom";
 
 function Home() {
   const [user] = useAuthState(auth);
+  const history = useHistory();
   if (user)
     return (
       <div className="Home">
@@ -87,7 +90,23 @@ function Home() {
         </div>
       </div>
     );
-  else return <div className="pls-login">Pls login to continue</div>;
+  else
+    return (
+      <div className="pls-login">
+        <AlertDialog
+          heading="Login Required"
+          exit="Quit"
+          confirmText="Proceed to Login Page"
+          text  ="Please login to continue to view Places and Destinations"
+          main={() => {
+            history.push("/login");
+          }}
+          quit={() => {
+            history.push("/");
+          }}
+        />
+      </div>
+    );
 }
 
 export default Home;

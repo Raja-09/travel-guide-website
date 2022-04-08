@@ -11,7 +11,12 @@ export default function Varnasi() {
         placeName={placeName}
         id={placeName}
         stateName={stateName}
-        placeDesc={<div>Hello world i am {placeName}</div>}
+        placeDesc={
+          <div>
+            Hello world i am {placeName}
+            <h3 className="hello"> HEllo </h3>
+          </div>
+        }
         imagesUrl={images}
       />
     </div>

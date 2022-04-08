@@ -25,6 +25,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/register">
+            <ResponsiveAppBar />
             <Register />
           </Route>
           <Route path="/home">

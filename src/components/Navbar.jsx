@@ -1,4 +1,7 @@
 import * as React from "react";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import PersonIcon from "@mui/icons-material/Person";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,30 +11,35 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import { Link, useHistory } from "react-router-dom";
+import TourIcon from "@mui/icons-material/Tour";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { auth } from "../firebase.js";
 import "./styles/Navbar.css";
-import { MenuItemUnstyled, MenuUnstyledContext } from "@mui/base";
 
 const pages = ["Home", "Travel", "Places", "About US", "Contact Us"];
 
 const ResponsiveAppBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [user] = useAuthState(auth);
   const history = useHistory();
-  const handleAuthentication = () => {
-    if (user) {
-      if (window.confirm("Are you sure you want to sign out?"))
-        auth.signOut().then((auth) => {
-          history.push("/");
-        });
-    }
+  const signOut = () => {
+    auth.signOut().then((auth) => {
+      history.push("/");
+    });
   };
 
+  const handleAuthentication = () => {
+    if (user) {
+      if (window.confirm("Are you sure you want to log out?")) {
+        signOut();
+      }
+    }
+  };
+  const handleAddUser = () => {
+    history.push("/register");
+  };
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -116,21 +124,25 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
 
-          <Box>
-            <Link to={returnLink} className="links">
-              <Button
-                variant="contained"
-                disableElevation
-                onClick={handleAuthentication}
-              >
-                {user ? "Sign Out" : "Sign In"}
-              </Button>
-            </Link>
-          </Box>
+          {!user ? (
+            <Box>
+              <Link to={returnLink} className="links">
+                <Button
+                  variant="contained"
+                  // disableElevation
+                  onClick={handleAuthentication}
+                >
+                  Sign In
+                </Button>
+              </Link>
+            </Box>
+          ) : null}
           {user && (
             <div>
+              {user.displayName.split(" ")[0]}
               <IconButton
                 size="large"
+                style={{marginLeft:10}}
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
@@ -158,14 +170,20 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem
-                  sx={{ color: "#1a73e8", backgroundColor: "#1a73e8" }}
-                  onMouseOver={handleMouse}
-                >
-                  {user.displayName}
+                <MenuItem onClick={handleProfile}>
+                  <PersonIcon sx={{ marginRight: "10px" }} />
+                  Profile
                 </MenuItem>
-                <MenuItem onClick={handleProfile}>Profile</MenuItem>
-                <MenuItem onClick={handlePlaces}>My Places</MenuItem>
+                <MenuItem onClick={handlePlaces}>
+                  <TourIcon sx={{ marginRight: "10px" }} />
+                  My Places
+                </MenuItem>
+                <MenuItem onClick={handleAddUser}>
+                  <PersonAddIcon sx={{ marginRight: "10px" }} /> Add User
+                </MenuItem>
+                <MenuItem onClick={handleAuthentication}>
+                  <LogoutIcon sx={{ marginRight: "10px" }} /> Logout
+                </MenuItem>
               </Menu>
             </div>
           )}

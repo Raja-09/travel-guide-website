@@ -7,6 +7,7 @@ import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import AlertDialog from "./mui/AlertDialog";
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,6 +15,11 @@ function Register() {
   const [confirmPassword, setConfirm] = useState("");
   const [user] = useAuthState(auth);
   const history = useHistory();
+  const signOut = () => {
+    auth.signOut().then((auth) => {
+      history.push("/register");
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -74,13 +80,23 @@ function Register() {
   else
     return (
       <div>
-        <h5>Logged in as {user?.displayName}</h5>
-        <Link to="/home">
-          <h2>Home</h2>
-        </Link>
-        <p>
-          <img src="" alt="" />
-        </p>
+        <AlertDialog
+          text={
+            <>
+              Logged in as {user.displayName}
+              <br /> Are you Sure you want to log out and add an account`
+            </>
+          }
+          confirmText="Logout and add Account"
+          heading="Confirm Logout"
+          main={() => {
+            signOut();
+          }}
+          exit={"Go back"}
+          quit={() => {
+            history.push("/home");
+          }}
+        />
       </div>
     );
 }

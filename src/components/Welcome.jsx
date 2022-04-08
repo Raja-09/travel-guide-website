@@ -31,10 +31,7 @@ function Welcome() {
     }
     setVideo(vidArr[index + 1]);
   };
-  const changeVideo = () => {
-    let x = parseInt(Math.random() * 4);
-    console.log(x);
-  };
+
   const changeAlert = () => {
     setStatus("Query Submitted");
     setTimeout(() => {

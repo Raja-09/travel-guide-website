@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import "firebase/compat/firestore";
 import { auth } from "../firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
+import AlertDialog from "./mui/AlertDialog";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -43,15 +44,15 @@ function Login() {
   if (!user)
     return (
       <div className="login">
-        <h3
-          className="logo"
-          onClick={() => history.push("/")}
-          style={{ cursor: "pointer" }}
-        >
-          TRAVELLOPEDIA
-        </h3>
         <div className="login-container">
-          <h1>Sign in</h1>
+          <h3
+            className="logo"
+            onClick={() => history.push("/")}
+            style={{ cursor: "pointer", textAlign: "center" }}
+          >
+            TRAVELLOPEDIA
+          </h3>
+          <h1 style={{ textAlign: "center" }}>Sign in</h1>
           <form>
             <div className="inputs">
               <h5 className="ms-1">Email</h5>
@@ -115,9 +116,14 @@ function Login() {
   else
     return (
       <div className="">
-        youu are already logged in as {user.displayName}
-        <p>click here to go to homepage </p>
-        <Button onClick={() => history.push("/home")}>Home</Button>
+        <AlertDialog
+          text={`You are already logged in as ${user.displayName}`}
+          confirmText="Proceed to Home page"
+          heading="Existing login Session"
+          main={() => {
+            history.push("/home");
+          }}
+        />
       </div>
     );
 }
