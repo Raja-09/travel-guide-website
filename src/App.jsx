@@ -73,8 +73,8 @@ function App() {
             <Welcome />
           </Route>
         </Switch>
+        <Footer />
       </Router>
-      <Footer/>
     </div>
   );
 }

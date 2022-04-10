@@ -6,7 +6,7 @@ function Footer() {
   const history = useHistory();
   const goHome = () => {
     //push to home
-    history.push("/home");
+    history.push("/");
   };
   return (
     <div>
@@ -26,7 +26,7 @@ function Footer() {
               <i className="icon ion-social-instagram" />
             </a>
             <a href="#">
-              <i className="icon ion-social-snapchat" />
+              <i className="icon ion-social-github" />
             </a>
             <a href="#">
               <i className="icon ion-social-twitter" />
@@ -38,7 +38,7 @@ function Footer() {
           <ul className="list-inline">
             <li className="list-inline-item">
               <span style={{ cursor: "pointer" }} onClick={goHome}>
-                <a>Home</a>
+                <a href="#">Home</a>
               </span>
             </li>
             <li className="list-inline-item">

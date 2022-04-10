@@ -66,7 +66,7 @@ function Welcome() {
   }
 
   return (
-    <div className="welcome">
+    <div className="welcome" id="welcome">
       <section className="home">
         <div className="content">
           <h3>adventure is worthwhile</h3>

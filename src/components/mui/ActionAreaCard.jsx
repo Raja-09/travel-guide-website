@@ -1,18 +1,30 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Tooltip } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider.js";
+import { auth, db } from "../../firebase.js";
 
 export default function RecipeReviewCard({ id, text, image, heading }) {
-  const [, dispatch] = useStateValue();
+  const [user] = useAuthState(auth);
+  const [{ cart }, dispatch] = useStateValue();
+  const pushData = () => {
+    db.collection("users").doc(user?.uid).collection("places").add({
+      id,
+      heading,
+      image,
+      text,
+      AddedAt: new Date(),
+    });
+  };
   const addToCart = () => {
     dispatch({
       type: "ADD_TO_CART",
@@ -23,8 +35,8 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
         text: text,
       },
     });
+    pushData();
   };
-
   const history = useHistory();
   return (
     <Card sx={{ width: 300, height: 400 }}>
@@ -46,11 +58,15 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
         </CardContent>
       </CardActionArea>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={addToCart}>
-          <FavoriteIcon />
-        </IconButton>
+        <Tooltip title="Add to favorties">
+          <IconButton aria-label="add to favorites" onClick={addToCart}>
+            <FavoriteIcon />
+          </IconButton>
+        </Tooltip>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <Tooltip title="Share">
+            <ShareIcon />
+          </Tooltip>
         </IconButton>
       </CardActions>
     </Card>
