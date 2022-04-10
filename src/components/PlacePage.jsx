@@ -7,9 +7,6 @@ function PlacePage(props) {
         <div className="place-heading">
           {props.placeName ? props.placeName : "PlaceName here"} •{" "}
           {props.stateName} • India
-
-
-
           {props.placeDesc}
         </div>
       </div>

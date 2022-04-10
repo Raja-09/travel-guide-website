@@ -24,7 +24,6 @@ function Welcome() {
   const [status, setStatus] = useState("");
   const [user] = useAuthState(auth);
   const handleVideoChange = () => {
-    //change to next video
     let index = vidArr.indexOf(video);
     if (index === vidArr.length - 1) {
       setVideo(vidArr[0]);

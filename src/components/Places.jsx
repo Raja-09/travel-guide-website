@@ -75,7 +75,7 @@ function Places() {
       image:
         "https://www.adotrip.com/public/images/city/master_images/60fea3d330d04-Manali_in_Himachal_Pradesh.jpg",
     },
-    { name: "", description: "", image: "" },
+    { name: "some name", description: "", image: "" },
   ]);
 
   const sortAscending = () => {
@@ -119,9 +119,10 @@ function Places() {
             <div key={item.name} id={item.name} className="cards">
               <RecipeReviewCard
                 heading={item.name}
-                key={Math.random()}
+                key={item.name}
                 image={item.image}
                 text={item.description}
+                id = {item.name}
               />
             </div>
           ))}

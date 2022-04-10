@@ -9,8 +9,22 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { CardActionArea } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import { useStateValue } from "../../StateProvider.js";
 
-export default function RecipeReviewCard({ text, image, heading }) {
+export default function RecipeReviewCard({ id, text, image, heading }) {
+  const [, dispatch] = useStateValue();
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      item: {
+        id: id,
+        title: heading,
+        image: image,
+        text: text,
+      },
+    });
+  };
+
   const history = useHistory();
   return (
     <Card sx={{ width: 300, height: 400 }}>
@@ -32,7 +46,7 @@ export default function RecipeReviewCard({ text, image, heading }) {
         </CardContent>
       </CardActionArea>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={addToCart}>
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">

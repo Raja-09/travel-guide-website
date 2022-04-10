@@ -5,13 +5,17 @@ import './index.css';
 
 import reportWebVitals from './reportWebVitals';
 import LoadingApp from './LoadingApp';
+import { StateProvider } from './StateProvider';
+import reducer, { initialState } from './reducer';
 
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <LoadingApp />
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <LoadingApp />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
