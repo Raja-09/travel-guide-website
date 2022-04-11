@@ -8,13 +8,14 @@ import IconButton from "@mui/material/IconButton";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
-import { CardActionArea, Tooltip } from "@mui/material";
+import { Alert, CardActionArea, Tooltip } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider.js";
 import { auth, db } from "../../firebase.js";
 
 export default function RecipeReviewCard({ id, text, image, heading }) {
   const [user] = useAuthState(auth);
+  const [status, setStatusBase] = React.useState("");
   const [{ cart }, dispatch] = useStateValue();
   const pushData = () => {
     db.collection("users").doc(user?.uid).collection("places").add({
@@ -24,6 +25,12 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
       text,
       AddedAt: new Date(),
     });
+  };
+  const handleAlert = (name) => {
+    setStatusBase(name);
+    setTimeout(() => {
+      setStatusBase("");
+    }, 4000);
   };
   const addToCart = () => {
     dispatch({
@@ -59,7 +66,13 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
       </CardActionArea>
       <CardActions disableSpacing>
         <Tooltip title="Add to favorties">
-          <IconButton aria-label="add to favorites" onClick={addToCart}>
+          <IconButton
+            aria-label="add to favorites"
+            onClick={() => {
+              addToCart();
+              handleAlert(heading);
+            }}
+          >
             <FavoriteIcon />
           </IconButton>
         </Tooltip>
@@ -69,6 +82,18 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
           </Tooltip>
         </IconButton>
       </CardActions>
+      {status ? (
+        <Alert
+          severity="success"
+          onClose={() => {
+            setStatusBase("");
+          }}
+          className="alertFav"
+          key={Math.random()}
+        >
+          Successfully added <b>{status}</b> to your favourites
+        </Alert>
+      ) : null}
     </Card>
   );
 }

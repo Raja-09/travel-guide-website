@@ -30,6 +30,8 @@ function Register() {
       .createUserWithEmailAndPassword(email, password)
       .then(function (result) {
         history.push("/home");
+        //refresh page
+        window.location.reload();
         return result.user.updateProfile({
           displayName: name,
         });

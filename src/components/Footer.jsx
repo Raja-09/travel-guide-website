@@ -5,7 +5,6 @@ import "./styles/Footer.css";
 function Footer() {
   const history = useHistory();
   const goHome = () => {
-    //push to home
     history.push("/");
   };
   return (

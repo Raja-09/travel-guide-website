@@ -5,10 +5,12 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { auth, db } from "../firebase.js";
 import { Tooltip } from "@mui/material";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router-dom";
 
 function SavedPlaces() {
   const [{ cart }, dispatch] = useStateValue();
   const [user] = useAuthState(auth);
+  const history = useHistory();
   const [places, setPlaces] = React.useState(cart);
   const removePlace = (did) => {
     db.collection("users")
@@ -50,7 +52,7 @@ function SavedPlaces() {
         {places.map((item) => {
           return (
             <div className="savedPlacesContainer" key={item.heading}>
-              <h4 className="savedPlaceHeading">{item.heading} • India</h4>
+              <h4 className="savedPlaceHeading" onClick={()=>history.push(`/places/${item.heading.toLowerCase()}`)}>{item.heading} • India</h4>
               <div className="wrap2">
                 <div className="image">
                   <img

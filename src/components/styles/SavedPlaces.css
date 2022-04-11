@@ -55,6 +55,8 @@
 
 .savedPlaceHeading:hover {
     color: #10a0c5;
+    cursor: pointer;
+    
     text-decoration: underline;
 }
 
