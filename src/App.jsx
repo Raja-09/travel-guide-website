@@ -19,7 +19,7 @@ import Footer from "./components/Footer";
 import TestRegister from "./components/TestRegister";
 function App() {
   return (
-    <div>
+    <div className="App">
       <Router>
         <Switch>
           <Route path="/login">

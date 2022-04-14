@@ -3,8 +3,25 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 import { auth } from "../firebase";
 import AlertDialog from "./mui/AlertDialog";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import firebase from "firebase/compat/app";
 import "./styles/Register.css";
+
 function TestRegister() {
+  function signInWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then((auth) => {
+        history.push("/home");
+      })
+      .catch((error) => {
+        error.message = error.message.replace("Firebase: ", "");
+        // setStatusBase({ msg: error.message, key: Math.random() });
+        window.alert(error.message);
+      });
+  }
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -95,8 +112,8 @@ function TestRegister() {
             <button className="social-signin twitter">
               Log in with Twitter
             </button>
-            <button className="social-signin google">
-              Log in with Google+
+            <button className="social-signin google" onClick={signInWithGoogle}>
+              Log in with Google
             </button>
           </div>
           <div className="or">OR</div>

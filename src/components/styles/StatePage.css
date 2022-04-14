@@ -44,13 +44,17 @@
   font-weight: bold;
   font-variant: small-caps;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  
     "Lucida Sans", Arial, sans-serif;
+    text-align: center;
   color: #000;
 }
 .state-places {
   border-top: 1px double lightgrey;
   padding: 20px;
   margin: 20px;
+  background-color: rgb(244, 244, 244);
+  
 }
 .state-places-list {
   width: 100%;

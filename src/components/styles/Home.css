@@ -15,6 +15,10 @@
   height: 50px;
   width: 100%;
 }
+.homeCard{
+  max-height: 400px;
+  overflow: hidden;
+}
 
 .wavingHand {
   animation-name: wave-animation;

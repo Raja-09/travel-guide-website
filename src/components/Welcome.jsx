@@ -84,8 +84,42 @@ function Welcome() {
           onClick={handleVideoChange}
         />
       </section>
-      <div className="contact" id="contact">
-        <h3>Contact Us</h3>
+      <a href="#contact" id="conBtn"></a>
+      <a href="#about" id="aboutBtn"></a>
+
+      <div id="about">
+        <h3 style={{ visibility: "hidden" }}>uysdaisdg</h3>
+      </div>
+      <section className="about">
+        <div className="content">
+          <h1 style={{ padding:20}}>
+            <i>
+              <u>
+                <b>About Travellopedia</b>
+              </u>
+            </i>
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </section>
+
+      <div id="contact">
+        <h3 style={{ visibility: "hidden" }}>uysdaisdg</h3>
+      </div>
+      <div className="contact">
+        <h3>Get in touch with us </h3>
+        <span style={{ width: "600px" }}>
+          Please post your queries and questions here and we will get back to
+          you as soon as possible
+        </span>
         <div className="textFields">
           <div className="names">
             <span className="fname">
@@ -152,7 +186,6 @@ function Welcome() {
           </Alert>
         ) : null}
       </div>
-      
     </div>
   );
 }

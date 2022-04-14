@@ -29,7 +29,7 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
   const handleAlert = (name) => {
     setStatusBase(name);
     setTimeout(() => {
-      setStatusBase("");
+      setStatusBase(""); 
     }, 4000);
   };
   const addToCart = () => {
@@ -44,6 +44,9 @@ export default function RecipeReviewCard({ id, text, image, heading }) {
     });
     pushData();
   };
+  const handleShare = (name)=>{
+    
+  }
   const history = useHistory();
   return (
     <Card sx={{ width: 300, height: 400 }}>

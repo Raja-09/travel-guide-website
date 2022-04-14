@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .savedPlacesLeft {
@@ -11,8 +12,16 @@
 .savedPlacesRight {
     flex: 1;
 }
+.savedPlaces__header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: black;
+}
 
 .savedPlacesContainer {
     display: flex;
@@ -66,4 +75,10 @@
     align-self: flex-end;
     margin-bottom: 10px;
     cursor: pointer;
+}
+.leftright{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

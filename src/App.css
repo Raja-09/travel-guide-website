@@ -1,3 +1,14 @@
+.App{
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    font-family: 'Nunito', sans-serif;
+}
+
 .name {
     color: green;
 }
@@ -19,17 +30,20 @@
 
 
 }
-.links{
+
+.links {
     text-decoration: none;
 }
-.hello{
+
+.hello {
     text-align: center;
 }
-.alertFav{
+
+.alertFav {
     position: fixed;
     top: 90%;
     width: 500px;
     z-index: 20;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}

@@ -77,6 +77,12 @@ const ResponsiveAppBar = () => {
         document.getElementById("conBtn").click();
       }, 100);
     }
+    if(page === "About US"){
+      history.push("/");
+      setTimeout(() => {
+        document.getElementById("aboutBtn").click();
+      }, 100);
+    }
   };
   const returnLink = () => {
     if (!user) return "/login";
@@ -87,7 +93,7 @@ const ResponsiveAppBar = () => {
     e.target.style.cursor = "";
   };
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" sx={{ backgroundColor: "#383434" }}>
       <a href="#" id="home"></a>
       <a href="#travel" id="linkBtn"></a>
       <a href="#contact" id="conBtn"></a>
@@ -111,16 +117,26 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                size="small"
-                variant="contained"
-                disableElevation
-                onClick={() => handleMenuItems(page)}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+              <a href="#" style={{ textDecoration: "none" }}>
+                <Button
+                  key={page}
+                  size="small"  
+                  disableElevation
+                  onClick={() => handleMenuItems(page)}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    backgroundColor: "#383434",
+                    ":hover": {
+                      backgroundColor: "#383434",
+                      color: "#4285F4",
+                    },
+                  }}
+                >
+                  {page}
+                </Button>
+              </a>
             ))}
           </Box>
 
@@ -142,7 +158,7 @@ const ResponsiveAppBar = () => {
               {user.displayName.split(" ")[0]}
               <IconButton
                 size="large"
-                style={{marginLeft:10}}
+                style={{ marginLeft: 10 }}
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"

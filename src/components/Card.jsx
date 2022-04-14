@@ -8,7 +8,7 @@ function Card(props) {
     history.push(`/home/${name.toLowerCase()}`);
   };
   return (
-    <div className="card m-4 p-1" onClick={() => handleView(props.name)}>
+    <div className="card m-4 p-1 homeCard" onClick={() => handleView(props.name)}>
       <div>
         <img src={props.photoUrl} alt="" className="cardImage" />
       </div>

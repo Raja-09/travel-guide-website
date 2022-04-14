@@ -48,41 +48,58 @@ function SavedPlaces() {
 
   return (
     <div className="savedPlaces">
-      <div className="savedPlacesLeft">
-        {places.map((item) => {
-          return (
-            <div className="savedPlacesContainer" key={item.heading}>
-              <h4 className="savedPlaceHeading" onClick={()=>history.push(`/places/${item.heading.toLowerCase()}`)}>{item.heading} • India</h4>
-              <div className="wrap2">
-                <div className="image">
-                  <img
-                    className="savedPlaceImage"
-                    src={item.image}
-                    alt={item.heading}
-                  />
-                </div>
-                <div className="text">{item.text}</div>
-                <Tooltip title="Remove from favorites">
-                  <div
-                    className="remove btn btn-danger btn-sm"
-                    onClick={() => {
-                      removePlace(item.id);
-                    }}
-                  >
-                    <RemoveIcon />
-                  </div>
-                </Tooltip>
-              </div>
-            </div>
-          );
-        })}
+      <div className="savedPlaces__header">
+        <h3 style={{textAlign:"center"}}>
+          Hello, {user.displayName}
+          <br /> Your Saved Places
+        </h3>
       </div>
-      <div className="savedPlacesRight">
-        <ul>
-          {cart.map((item) => {
-            return <li key={item.title}>{item.title}</li>;
+      <div className="leftright">
+        <div className="savedPlacesLeft">
+          {places?.map((item) => {
+            return (
+              <div className="savedPlacesContainer" key={item.heading}>
+                <h4
+                  className="savedPlaceHeading"
+                  onClick={() =>
+                    history.push(`/places/${item.heading.toLowerCase()}`)
+                  }
+                >
+                  {item.heading} • India
+                </h4>
+                <div className="wrap2">
+                  <div className="image">
+                    <img
+                      className="savedPlaceImage"
+                      src={item.image}
+                      alt={item.heading}
+                      height="100px"
+                      width="100px"
+                    />
+                  </div>
+                  <div className="text">{item.text}</div>
+                  <Tooltip title="Remove from favorites">
+                    <div
+                      className="remove btn btn-danger btn-sm"
+                      onClick={() => {
+                        removePlace(item.id);
+                      }}
+                    >
+                      <RemoveIcon />
+                    </div>
+                  </Tooltip>
+                </div>
+              </div>
+            );
           })}
-        </ul>
+        </div>
+        <div className="savedPlacesRight">
+          <ul>
+            {places.map((item) => {
+              return <li key={item.heading}>{item.heading}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
