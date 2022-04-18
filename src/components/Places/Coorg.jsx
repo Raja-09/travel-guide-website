@@ -1,16 +1,16 @@
 import React from "react";
 import PlacePage from "../PlacePage";
 
-export default function Varnasi() {
+export default function Coorg() {
   const images = [
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
   ];
-  const placeName = "Varnasi";
+  const placeName = "Coorg";
   const stateName = "Uttar Pradesh";
   const placeImage =
-    "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg";
+    "https://static.toiimg.com/photo/48466026.cms";
   return (
     <div>
       <PlacePage

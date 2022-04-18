@@ -1,16 +1,16 @@
 import React from "react";
 import PlacePage from "../PlacePage";
 
-export default function Varnasi() {
+export default function Shimla() {
   const images = [
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
   ];
-  const placeName = "Varnasi";
-  const stateName = "Uttar Pradesh";
+  const placeName = "Shimla";
+  const stateName = "Himachal Pradesh";
   const placeImage =
-    "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg";
+    "https://cdn.dnaindia.com/sites/default/files/styles/full/public/2022/02/05/1019167-shimla.jpeg";
   return (
     <div>
       <PlacePage

@@ -50,3 +50,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.forgotLink{
+  color: blue;
+  cursor: pointer;
+}
+.forgotLink:hover{
+  text-decoration: underline;
+  
+}

@@ -18,7 +18,7 @@ function PlacePage(props) {
               <hr />
             </div>
             <div className="placesList">
-              <MasonryImageList imagesList/>
+              <MasonryImageList imagesList={props.imagesUrl}/>
             </div>
           </div>
         </div>

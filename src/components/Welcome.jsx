@@ -71,7 +71,9 @@ function Welcome() {
         <div className="content">
           <h3>adventure is worthwhile</h3>
           <p>Discover new places, travel the World</p>
-          <a className="btn btn-warning btn-lg">Learn More</a>
+          <a className="btn btn-warning btn-lg" href="#about">
+            Learn More
+          </a>
         </div>
 
         <video
@@ -92,7 +94,7 @@ function Welcome() {
       </div>
       <section className="about">
         <div className="content">
-          <h1 style={{ padding:20}}>
+          <h1 style={{ padding: 20 }}>
             <i>
               <u>
                 <b>About Travellopedia</b>

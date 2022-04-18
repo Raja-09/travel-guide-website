@@ -1,14 +1,15 @@
 import React from "react";
 import "./styles/Login.css";
 import { useState } from "react";
-import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Alert, Button, Input, Tooltip } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { auth } from "../firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import AlertDialog from "./mui/AlertDialog";
+import FormDialog from "./mui/FormDialog";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -96,6 +97,7 @@ function Login() {
                   Create New Account
                 </button>
               </Tooltip>
+              <FormDialog />
             </div>
           </form>
         </div>

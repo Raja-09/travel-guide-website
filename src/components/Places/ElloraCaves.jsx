@@ -1,16 +1,16 @@
 import React from "react";
 import PlacePage from "../PlacePage";
 
-export default function Varnasi() {
+export default function ElloraCaves() {
   const images = [
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
     "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg",
   ];
-  const placeName = "Varnasi";
-  const stateName = "Uttar Pradesh";
+  const placeName = "Ellora Caves";
+  const stateName = "Maharashtra";
   const placeImage =
-    "https://www.iwmbuzz.com/wp-content/uploads/2021/05/varanasi-the-country-of-gods-a-must-visit-pilgrimage-that-will-change-the-way-you-live.jpg";
+    "https://cdn.getyourguide.com/img/tour/5b881032cf989.jpeg/99.jpg";
   return (
     <div>
       <PlacePage

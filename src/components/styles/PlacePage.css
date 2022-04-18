@@ -10,6 +10,7 @@
     width: 100%;
     z-index: -1;
     margin-bottom: -420px;
+    max-height: 850px;
     mask-image: linear-gradient(
       to bottom,
       rgba(245, 245, 245, 1),
@@ -19,7 +20,6 @@
   .state-heading {
     font-size: 2.5rem;
     font-weight: bold;
-    
     color: #1a73e8;
     background-color: white;
     width: fit-content;

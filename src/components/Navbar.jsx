@@ -77,7 +77,7 @@ const ResponsiveAppBar = () => {
         document.getElementById("conBtn").click();
       }, 100);
     }
-    if(page === "About US"){
+    if (page === "About US") {
       history.push("/");
       setTimeout(() => {
         document.getElementById("aboutBtn").click();
@@ -117,10 +117,14 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <a href="#" style={{ textDecoration: "none" }}>
+              <a
+                key={Math.random()}
+                href="#"
+                style={{ textDecoration: "none" }}
+              >
                 <Button
                   key={page}
-                  size="small"  
+                  size="small"
                   disableElevation
                   onClick={() => handleMenuItems(page)}
                   sx={{
@@ -165,7 +169,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                {user?.photoURL ? (
+                {user?.photoURL ? ( 
                   <img src={user?.photoURL} className="userIcon" />
                 ) : (
                   <AccountCircle />

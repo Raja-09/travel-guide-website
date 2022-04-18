@@ -17,6 +17,7 @@ import Goa from "./components/States/Goa";
 import Maharashtra from "./components/States/Maharashtra";
 import Footer from "./components/Footer";
 import TestRegister from "./components/TestRegister";
+import Map from "./components/Map";
 function App() {
   return (
     <div className="App">
@@ -69,6 +70,7 @@ function App() {
             <ResponsiveAppBar />
             <Profile />
           </Route>
+          <Route path="/test"></Route>
           <Route path="/">
             <ResponsiveAppBar />
             <Welcome />
