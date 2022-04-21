@@ -7,7 +7,7 @@ export default function MasonryImageList(props) {
   const itemData = props.imagesList;
   return (
     <Box sx={{ width: 900,height:1000}}>
-      <ImageList variant="masonry" cols={4} gap={12}>
+      <ImageList variant="masonry" cols={2} gap={50}>
         {itemData.map((item) => (
           <ImageListItem key={item}>
             <img

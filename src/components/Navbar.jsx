@@ -27,6 +27,7 @@ const ResponsiveAppBar = () => {
   const signOut = () => {
     auth.signOut().then((auth) => {
       history.push("/");
+      window.location.reload();
     });
   };
 
@@ -169,7 +170,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                {user?.photoURL ? ( 
+                {user?.photoURL ? (
                   <img src={user?.photoURL} className="userIcon" />
                 ) : (
                   <AccountCircle />

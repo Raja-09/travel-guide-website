@@ -11,10 +11,10 @@ import video2 from "../videos/vid-2.mp4";
 import video3 from "../videos/vid-3.mp4";
 import video4 from "../videos/vid-4.mp4";
 import video5 from "../videos/vid-5.mp4";
-import { Alert, Button, TextField } from "@mui/material";
+import { Alert, Button, TextField, Divider } from "@mui/material";
 
 function Welcome() {
-  const vidArr = [video1, video2, video3, video4, video5];
+  const vidArr = [video2, video1, video3, video4, video5];
   const [video, setVideo] = useState(vidArr[0]);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
@@ -110,6 +110,25 @@ function Welcome() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
+          <Divider />
+          <p style={{ textAlign: "center" }}>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit unde
+            cumque molestias quam nostrum minima libero voluptatibus adipisci
+            perferendis recusandae dolor commodi maiores, asperiores ad
+            molestiae at pariatur sed?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit quas laborum ipsam officiis. Repudiandae cupiditate
+            velit, incidunt omnis obcaecati error nam aliquam tempore in rem
+            fugiat? Voluptate doloribus fugiat repellat.
+          </p>
+          <p>
+            Contact:{" "}
+            <a href="mailto:aravindha92@gmail.com" target="_blank">
+              Email
+            </a>
+          </p>
         </div>
       </section>
 
@@ -169,6 +188,10 @@ function Welcome() {
             multiline
             rows={5}
           />
+          <span>
+            Reach out to us at :{" "}
+            <a href="mailto:travellopedia@gmail.com">travellopedia@gmail.com</a>
+          </span>
         </div>
         <Button
           sx={{ marginLeft: "850px", marginTop: "20px" }}

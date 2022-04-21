@@ -1,4 +1,4 @@
-.App{
+.App {
     padding: 0;
     box-sizing: border-box;
     text-transform: capitalize;
@@ -46,4 +46,14 @@
     z-index: 20;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.place__desc {
+    font-size: xx-large;
+    color: #333;
+    text-align: left;
+    width: 80%;
+}
+.place__desc>p{
+    font-size: large;
 }

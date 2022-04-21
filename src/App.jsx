@@ -15,6 +15,7 @@ import Rajasthan from "./components/States/Rajasthan";
 import UttarPradesh from "./components/States/UttarPradesh";
 import Goa from "./components/States/Goa";
 import Maharashtra from "./components/States/Maharashtra";
+import HimachalPradesh from "./components/States/HimachalPradesh";
 import Footer from "./components/Footer";
 import TestRegister from "./components/TestRegister";
 import Map from "./components/Map";
@@ -25,6 +26,7 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+            <Footer />
           </Route>
           <Route path="/register">
             <ResponsiveAppBar />
@@ -34,49 +36,64 @@ function App() {
             <ResponsiveAppBar />
             <Route exact path={"/home"}>
               <Home />
+              <Footer />
             </Route>
             <Route exact path={"/home/rajasthan"}>
               <Rajasthan />
+              <Footer />
             </Route>
             <Route exact path={"/home/kerala"}>
               <Kerala />
+              <Footer />
             </Route>
             <Route exact path={"/home/karnataka"}>
               <Karnataka />
+              <Footer />
             </Route>
             <Route exact path={"/home/uttar pradesh"}>
               <UttarPradesh />
+              <Footer />
             </Route>
             <Route exact path={"/home/goa"}>
               <Goa />
+              <Footer />
             </Route>
             <Route exact path={"/home/maharashtra"}>
               <Maharashtra />
+              <Footer />
+            </Route>
+            <Route exact path={"/home/himachal pradesh"}>
+              <HimachalPradesh />
+              <Footer />
             </Route>
           </Route>
           <Route exact path="/places">
             <ResponsiveAppBar />
             <Places />
+            <Footer />
           </Route>
           <Route path="/places/*">
             <ResponsiveAppBar />
             <PlaceRoutes />
+            <Footer />
           </Route>
           <Route path="/myplaces">
             <ResponsiveAppBar />
             <SavedPlaces />
+            <Footer />
           </Route>
           <Route path="/profile">
             <ResponsiveAppBar />
             <Profile />
+            <Footer />
           </Route>
           <Route path="/test"></Route>
           <Route path="/">
             <ResponsiveAppBar />
             <Welcome />
+            <Footer />
           </Route>
         </Switch>
-        <Footer />
       </Router>
     </div>
   );

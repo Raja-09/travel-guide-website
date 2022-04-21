@@ -24,7 +24,7 @@ function Footer() {
             <a href="#">
               <i className="icon ion-social-instagram" />
             </a>
-            <a href="#">
+            <a href="https://github.com/Raja-09/travel-guide-website" target={"_blank"}>
               <i className="icon ion-social-github" />
             </a>
             <a href="#">

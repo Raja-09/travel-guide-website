@@ -1,4 +1,5 @@
 import React from "react";
+import PlacesJSON from "../../PlacesJSON";
 import StatePage from "../StatePage";
 import "../styles/StatePage.css";
 
@@ -6,27 +7,32 @@ function Kerala() {
   const name = "Kerala";
   const image =
     "https://images.newindianexpress.com/uploads/user/imagelibrary/2020/2/4/w900X450/Alleppey.jpg?w=400&dpr=2.6";
-
-  const visitLocationsData = [
-    {
-      name: "place name",
-      image:
-        "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-      desc: "Description of the place",
-    },
-  ];
+  const arr = ["Munnar"];
+  const visitLocationsData = PlacesJSON.filter((place) =>
+    arr.includes(place.name)
+  );
   return (
-    <div>
+    <div style = {{height:"1400px"}}>
       <StatePage
         stateName={name}
         stateImage={image}
         visitLocationsData={visitLocationsData}
         stateDesc={
-          <div className="state-desc">
+          <div className="place__desc">
             <span>
               {" "}
-              State Description goes here <br />
-              State Description goes here
+              For many travelers, Kerala is South India's most serenely
+              beautiful state. This slender coastal strip is defined by its
+              layered landscape: almost 373 miles (600km) of glorious Arabian
+              Sea coast and beaches; a languid network of glistening backwaters;
+              and the spice- and tea-covered hills of the Western Ghats, dotted
+              with fiercely protected wildlife reserves and cool hill stations
+              such as Munnar. Just setting foot on this swathe of soul-soothing,
+              palm-shaded green will slow your subcontinental stride to a
+              blissed-out amble. Kerala is a world away from the hectic action
+              of the rest of India, its long, fascinating backstory illuminated
+              by historically evocative cities like Kochi (Cochin) and
+              Thiruvananthapuram (Trivandrum).
             </span>
             <span>
               State Description goes here
