@@ -94,7 +94,7 @@ const ResponsiveAppBar = () => {
     e.target.style.cursor = "";
   };
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#383434" }}>
+    <AppBar position="sticky" sx={{ backgroundColor: "#282424" }}>
       <a href="#" id="home"></a>
       <a href="#travel" id="linkBtn"></a>
       <a href="#contact" id="conBtn"></a>
@@ -132,10 +132,12 @@ const ResponsiveAppBar = () => {
                     my: 2,
                     color: "white",
                     display: "block",
-                    backgroundColor: "#383434",
+                    backgroundColor: "#282424",
+                    transition: "0.1s",
                     ":hover": {
-                      backgroundColor: "#383434",
-                      color: "#4285F4",
+                      backgroundColor: "#454649",
+                      color: "white",
+                      borderRadius: "20px",
                     },
                   }}
                 >

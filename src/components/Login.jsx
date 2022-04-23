@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles/Login.css";
 import { useState } from "react";
 import "firebase/compat/auth";
@@ -12,6 +12,9 @@ import AlertDialog from "./mui/AlertDialog";
 import FormDialog from "./mui/FormDialog";
 
 function Login() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [email, setEmail] = useState("");
   const history = useHistory();
   const [status, setStatusBase] = useState("");

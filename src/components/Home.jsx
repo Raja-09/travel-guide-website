@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { auth } from "../firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "firebase/compat/auth";
@@ -9,18 +9,50 @@ import AlertDialog from "./mui/AlertDialog.jsx";
 import { useHistory } from "react-router-dom";
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [user] = useAuthState(auth);
   const history = useHistory();
   if (user)
     return (
       <div className="Home">
-        <div className="container">
-          <h1 className="text-center">
-            Hello ,{user.displayName} <span className="wavingHand">👋</span>
+        <hr />
+        <div className="project">
+          <div className="ad">
+            <h1>&nbsp;&nbsp;The Treasure map for adventurers</h1>
+          </div>
+        </div>
+        <hr />
+        <div className="">
+          <h1 className="text-left m-4">
+            Hey {user.displayName.split(" ")[0]},
             <br /> Welcome to Travellopedia
           </h1>
           <div className="homeDesc"></div>
         </div>
+        <div className="project">
+          <p>
+            <h2 className="mainHeadings">&nbsp;&nbsp;About our Project</h2>
+          </p>
+          <div className="project_desc">
+            Going out for tours and vacations is a much-needed escape from our
+            daily routine as it helps us rejuvenate ourselves and gives us the
+            dose of joy and entertainment that we usually miss out due to our
+            busy work schedule. ​ Once deciding to go out on a trip planning one
+            can be quite tricky and overwhelming in some cases, especially for
+            people with no prior knowledge or experience travelling and going
+            out on trips.​
+            <br /> ​ Our Project aims at solving this problem, by creating a ​
+            website that gives a detailed overview regarding all the​ famous and
+            well-known tourist locations in India. Any ​ person shall be able to
+            open the site and simply choose a ​ state or city they would like to
+            visit and our website shall ​ provide them with details of the
+            famous locations and ​ sites that are worth visiting in that place.
+            ​
+          </div>
+        </div>
+
         <div className="travel" id="travel">
           <div className="filler"></div>
           <Card

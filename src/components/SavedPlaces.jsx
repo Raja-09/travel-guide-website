@@ -48,13 +48,13 @@ function SavedPlaces() {
 
   return (
     <div className="savedPlaces">
-      <div className="savedPlaces__header">
-        <h3 style={{textAlign:"center"}}>
-          Hello, {user.displayName}
-          <br /> Your Saved Places
-        </h3>
-      </div>
-      <div className="leftright">
+      <div className="project">
+        <div className="leftright">
+          <div className="ad">
+            <h1>&nbsp;&nbsp;Your favourites</h1>
+          </div>
+        </div>
+
         <div className="savedPlacesLeft">
           {places?.map((item) => {
             return (
@@ -92,13 +92,6 @@ function SavedPlaces() {
               </div>
             );
           })}
-        </div>
-        <div className="savedPlacesRight">
-          <ul>
-            {places.map((item) => {
-              return <li key={item.heading}>{item.heading}</li>;
-            })}
-          </ul>
         </div>
       </div>
     </div>

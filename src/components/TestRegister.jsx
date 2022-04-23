@@ -106,13 +106,11 @@ function TestRegister() {
               <br />
               social network
             </span>
-            <button className="social-signin facebook">
-              Log in with facebook
-            </button>
-            <button className="social-signin twitter">
-              Log in with Twitter
-            </button>
-            <button className="social-signin google" onClick={signInWithGoogle}>
+
+            <button
+              className="social-signin facebook mt-3"
+              onClick={signInWithGoogle}
+            >
               Log in with Google
             </button>
           </div>

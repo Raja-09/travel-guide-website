@@ -12,6 +12,7 @@ import video3 from "../videos/vid-3.mp4";
 import video4 from "../videos/vid-4.mp4";
 import video5 from "../videos/vid-5.mp4";
 import { Alert, Button, TextField, Divider } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
 function Welcome() {
   const vidArr = [video2, video1, video3, video4, video5];
@@ -23,6 +24,7 @@ function Welcome() {
   const [mobile, setMobile] = useState("");
   const [status, setStatus] = useState("");
   const [user] = useAuthState(auth);
+  const history = useHistory();
   const handleVideoChange = () => {
     let index = vidArr.indexOf(video);
     if (index === vidArr.length - 1) {
@@ -64,6 +66,13 @@ function Welcome() {
       changeAlert();
     }
   }
+  const handleAuthentication = () => {
+    if (!user) {
+      history.push("/login");
+    } else {
+      history.push("/home");
+    }
+  };
 
   return (
     <div className="welcome" id="welcome">
@@ -71,7 +80,7 @@ function Welcome() {
         <div className="content">
           <h3>adventure is worthwhile</h3>
           <p>Discover new places, travel the World</p>
-          <a className="btn btn-warning btn-lg" href="#about">
+          <a className="btn btn-warning btn-lg" href="#learn">
             Learn More
           </a>
         </div>
@@ -123,6 +132,7 @@ function Welcome() {
             velit, incidunt omnis obcaecati error nam aliquam tempore in rem
             fugiat? Voluptate doloribus fugiat repellat.
           </p>
+
           <p>
             Contact:{" "}
             <a href="mailto:aravindha92@gmail.com" target="_blank">
@@ -131,9 +141,52 @@ function Welcome() {
           </p>
         </div>
       </section>
-
+      <div className="project">
+        <p>
+          <h2 className="mainHeadings">&nbsp;&nbsp;About our Project</h2>
+        </p>
+        <div className="project_desc" id="learn">
+          Going out for tours and vacations is a much-needed escape from our
+          daily routine as it helps us rejuvenate ourselves and gives us the
+          dose of joy and entertainment that we usually miss out due to our busy
+          work schedule. ​ Once deciding to go out on a trip planning one can be
+          quite tricky and overwhelming in some cases, especially for people
+          with no prior knowledge or experience travelling and going out on
+          trips.​ ​ Our Project aims at solving this problem, by creating a ​
+          website that gives a detailed overview regarding all the​ famous and
+          well-known tourist locations in India. Any ​ person shall be able to
+          open the site and simply choose a ​ state or city they would like to
+          visit and our website shall ​ provide them with details of the famous
+          locations and ​ sites that are worth visiting in that place. ​
+        </div>
+      </div>
+      <div className="project">
+        <h2 className="mainHeadings">&nbsp;&nbsp;A guide to our Guide</h2>
+        <div className="project_desc guide_desc">
+          Feel Free to explore and look for the places you are most eager to
+          visit . You can choose places based on states or the places directly.
+          To get started you will have to sign in first, click the button below
+          to be redirected to the sign in page, you can also create an account
+          if you dont have one already.
+          <br />
+          <Button
+            onClick={() => {
+              handleAuthentication();
+            }}
+            className="my-3"
+           sx={{fontSize:"20px"}} 
+           variant="contained"
+          >
+            Sign In
+          </Button>
+          You will then be redirected to the home page from where you can choose
+          our destinations and view wonderful places to visit and travel to. We
+          sure do we hope we help you tick off your bucket list of places to
+          visit in India.
+        </div>
+      </div>
       <div id="contact">
-        <h3 style={{ visibility: "hidden" }}>uysdaisdg</h3>
+        <h3 style={{ visibility: "hidden", height: "10px" }}>uysdaisdg</h3>
       </div>
       <div className="contact">
         <h3>Get in touch with us </h3>

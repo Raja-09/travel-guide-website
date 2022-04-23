@@ -1,24 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MasonryImageList from "./mui/PlaceImages";
 import "./styles/PlacePage.css";
 import { auth, db } from "../firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 function PlacePage(props) {
-  const [user] = useAuthState(auth);
-  const pushData = () => {
-    db.collection("users").doc(user?.uid).collection("places").add({
-      id: props.placeName,
-      heading: props.placeName,
-      image: props.placeImage,
-      text: props.placeDesc,
-      AddedAt: new Date(),
-    });
-    console.log("pushing data");
-  };
-  const addToCart = () => {
-    pushData();
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="place">
       <div className="state-container">
@@ -28,10 +17,7 @@ function PlacePage(props) {
           {props.stateName ? props.stateName : "StateName here"}{" "}
         </div>
         <div className="state-wrapper">
-          <button
-            className="btn btn-primary btn-sm mx-5 mt-5 float"
-            onClick={addToCart}
-          >
+          <button className="btn btn-primary btn-sm mx-5 mt-5 float">
             Add to favorites
           </button>
           <div className="state-desc">{props.placeDesc}</div>

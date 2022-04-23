@@ -54,6 +54,43 @@
     text-align: left;
     width: 80%;
 }
-.place__desc>p{
+
+.place__desc>p {
     font-size: large;
+}
+
+.mainHeadings {
+    border-left: 10px solid #1e90ff;
+    margin-right: 50px;
+    text-align: left;
+
+}
+
+.project {
+    margin: 30px;
+    padding-top: 20px;
+    width: 80%;
+}
+
+.project_desc {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    font-size: larger;
+    border-bottom: 1px solid lightgrey;
+    justify-content: space-evenly;
+    white-space: pre-wrap;
+}
+
+.guide_desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ad{
+    border-left: 30px solid #1e90ff;
+    border-right: 30px solid #1e90ff;
+    text-align: center;
+    width: 120%;
 }
