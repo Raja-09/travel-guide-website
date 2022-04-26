@@ -7,12 +7,12 @@ function Maharashtra() {
   const name = "Maharashtra";
   const image =
     "https://img.etimg.com/thumb/width-1200,height-575,imgsize-154635,resizemode-1,msid-81997160/news/india/maharashtra-mulling-full-lockdown-for-at-least-a-wk.jpg";
-  const arr = ["Ellora Caves","Lonavla","Lavasa","Andheri National Park"];
-    const visitLocationsData = PlacesJSON.filter((place) =>
+  const arr = ["Ellora Caves"];
+  const visitLocationsData = PlacesJSON.filter((place) =>
     arr.includes(place.name)
   );
   return (
-    <div style = {{height:"1400px"}}>
+    <div>
       <StatePage
         stateName={name}
         stateImage={image}

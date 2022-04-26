@@ -26,9 +26,10 @@
 .imageList:hover {
     background-color: whitesmoke;
     box-shadow: 0px 0px 10px lightgrey;
-
-
-
+}
+.stateNameinCards{
+    color: #1e90ff;
+    text-transform: uppercase;
 }
 
 .links {

@@ -17,9 +17,9 @@ function PlacePage(props) {
           {props.stateName ? props.stateName : "StateName here"}{" "}
         </div>
         <div className="state-wrapper">
-          <button className="btn btn-primary btn-sm mx-5 mt-5 float">
+          {/* <button className="btn btn-primary btn-sm mx-5 mt-5 float">
             Add to favorites
-          </button>
+          </button> */}
           <div className="state-desc">{props.placeDesc}</div>
           <div className="state-places">
             <div className="state-places-heading">

@@ -96,3 +96,10 @@
 .lname {
   width: 500px;
 }
+.contactWrapper{
+   display:flex;
+  flex-direction:row;
+}
+.contactImg{
+  flex: 1;
+}

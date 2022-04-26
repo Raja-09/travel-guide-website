@@ -193,6 +193,7 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+                
                 <MenuItem onClick={handleProfile}>
                   <PersonIcon sx={{ marginRight: "10px" }} />
                   Profile

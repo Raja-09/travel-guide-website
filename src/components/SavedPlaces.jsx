@@ -3,7 +3,9 @@ import { useStateValue } from "../StateProvider";
 import "./styles/SavedPlaces.css";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { auth, db } from "../firebase.js";
-import { Tooltip } from "@mui/material";
+import ClearIcon from '@mui/icons-material/Clear';
+import { Button, Tooltip } from "@mui/material";
+import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 
@@ -56,6 +58,7 @@ function SavedPlaces() {
         </div>
 
         <div className="savedPlacesLeft">
+          <Tooltip title="Clear all "><Button variant = ""><ClearIcon/> </Button></Tooltip>
           {places?.map((item) => {
             return (
               <div className="savedPlacesContainer" key={item.heading}>
@@ -85,7 +88,7 @@ function SavedPlaces() {
                         removePlace(item.id);
                       }}
                     >
-                      <RemoveIcon />
+                      <BookmarkRemoveIcon />
                     </div>
                   </Tooltip>
                 </div>

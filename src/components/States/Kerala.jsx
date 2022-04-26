@@ -7,12 +7,12 @@ function Kerala() {
   const name = "Kerala";
   const image =
     "https://images.newindianexpress.com/uploads/user/imagelibrary/2020/2/4/w900X450/Alleppey.jpg?w=400&dpr=2.6";
-  const arr = ["Munnar"];
+  const arr = ["Munnar","Kochi","Varkala","Allepey"];
   const visitLocationsData = PlacesJSON.filter((place) =>
     arr.includes(place.name)
   );
   return (
-    <div style = {{height:"1400px"}}>
+    <div style = {{height:"1700px"}}>
       <StatePage
         stateName={name}
         stateImage={image}

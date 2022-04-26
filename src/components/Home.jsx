@@ -55,6 +55,8 @@ function Home() {
 
         <div className="travel" id="travel">
           <div className="filler"></div>
+          <h1 className = "headingStates">States to Travel </h1>
+          <div className="filler2"></div>
           <Card
             photoUrl={
               "https://media.istockphoto.com/photos/jog-falls-during-monsoon-picture-id950777136?b=1&k=20&m=950777136&s=170667a&w=0&h=g6MnlTHZqcQCGe2o6eZ_mDiD57g7cQ35-EyqVGTXR10="

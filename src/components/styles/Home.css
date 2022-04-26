@@ -12,14 +12,20 @@
 }
 
 .filler {
-  height: 50px;
+  height: 70px;
+  width: 100%;
+}
+.filler2 {
+  height: 0;
   width: 100%;
 }
 .homeCard{
   max-height: 400px;
   overflow: hidden;
 }
-
+.headingStates{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .wavingHand {
   animation-name: wave-animation;
   /* Refers to the name of your @keyframes element below */

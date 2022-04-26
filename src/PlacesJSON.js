@@ -91,6 +91,67 @@ const PlacesJSON = [
             "https://camo.githubusercontent.com/130b7223601884ed3cb88398575386bb4b08950081ce6bf0420cd02f9ff03aad/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f642f64322f546f6d625f6f665f48756d6179756e2532435f44656c68692e6a70672f3238383070782d546f6d625f6f665f48756d6179756e2532435f44656c68692e6a7067",
     },
     { name: "Lotus Temple", description: "The magnificent Bahá'í House of Worship, also known as the Lotus Temple due to its nine sides and stunning central dome, is an architectural masterpiece. Constructed of white concrete and marble, the entire structure looks as delicate as the flower it resembles.", image: "https://camo.githubusercontent.com/2b50983ebe5aef6b603b6d461f15dea2c9ee82c3c8c095b31394e0c18f5e0e39/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f662f66632f4c6f74757344656c68692e6a7067" },
-];
+    {
+        name: "Bandipur National Park",
+        description: "Get as close as you can to natural wildlife in Bandipur National Park. Perfect haven for animal lovers who want to get engrossed in the sights and sounds of the forest. Do not miss the Tiger Reserve and the Bird Sanctuary of the national park. The rich fauna and flora in the reserve will leave you asking for more. It is a perfect choice for a day picnic. Some of the wildlife you can spot here are elephants, the spotted deer, antelopes",
+        image: "https://static.india.com/wp-content/uploads/2019/02/Bandipur-National-Park.jpg?impolicy=Medium_Resize&w=1200&h=800"
+    }
+    ,
+    {
+        name: "Hampi",
+        description: "An Architectuaral Marvel - Hampi is one of the world’s heritage sites as declared by UNESCO. Situated on the banks of Tungabhadra, the place is home to historical ruins and remains of the Vijayanagar kingdom. Rocks and stone carvings are proof of the skill and mastery of the artisans of the old era. It is the perfect tourist place for the history enthusiast.",
+        image: "https://images.newindianexpress.com/uploads/user/imagelibrary/2021/11/15/w1200X800/Highlight_on.jpg"
+    },
+    {
+        name: "Andheri National Park",
+        description: "The Tadoba Andhari Tiger Reserve is a wildlife sanctuary in Chandrapur district of Maharashtra state in India. It is Maharashtra's oldest and largest national park. Created in 1955, the reserve includes the Tadoba National Park and the Andhari Wildlife Sanctuary. The reserve consists of 577.96 square kilometres of reserved forest and 32.51 square kilometres of protected forest. ",
+        image: "https://tigersempire.in/wp-content/uploads/2022/01/activities-tadoba-national-park.jpg"
+    },
+    {
+        name: "Lavasa",
+        description: "Known as India's newest hill station, the Lavasa Corporation is constructing this private city. The city is a beautiful project, stylistically based on the Italian town Portofino. Spreading across 7 hills, covering an area of 25000 acres, Lavasa is a perfect blend of beauty and infrastructure",
+        image: "https://www.holidify.com/images/bgImages/LAVASA.jpg"
+    },
+    {
+        name: "Lonavla",
+        description: "Situated in the Sahyadri range of the Western Ghats close to Pune and Mumbai, Lonavala is the most visited hill station in Maharashtra and the place to be during monsoons",
+        image: "https://www.holidify.com/images/bgImages/LONAVALA.jpg"
+    },
+    {
+        name:"Kochi",
+        description:"Situated on the southwest coast of India, Kochi or Cochin is a commercial port city with a trading history that dates back to at least 600 years. Called the Queen of the Arabian Sea, the city is Kerala's financial, commercial, and industrial capital.",
+        image:"https://irisholidays.com/keralatourism/wp-content/uploads/2013/07/kochi-image.jpg",
+    },
+    {
+        name:"Varkala",
+        description:"Varkala is a coastal town in the southern part of Kerala known for the unique 15m high 'Northern Cliff' adjacent to the Arabian Sea. It is popular for its hippie culture, shacks on the cliff serving great seafood and playing global music",
+        image:"https://assets.telegraphindia.com/telegraph/2022/Jan/1641658803_varkala-beach.jpg",
+    },
+    {
+        name:"Allepey",
+        description:"Officially called Alappuzha, Alleppey is the picture-perfect place known for its beautiful backwaters and the houseboats offering overnight stays. The coastline of Alleppey offers some of the best beaches in Kerala with water sports during the dry season. ",
+        image:"https://qph.cf2.quoracdn.net/main-qimg-27ff59a61a075d5f2a93134f1382f298-lq",
+    },
+    {
+        name:"",
+        description:"",
+        image:"",
+    },
+    
 
-export default PlacesJSON;
+];
+//suffle the places
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    //shuffle array 
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+export default shuffle(PlacesJSON);

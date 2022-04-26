@@ -11,6 +11,7 @@ import video2 from "../videos/vid-2.mp4";
 import video3 from "../videos/vid-3.mp4";
 import video4 from "../videos/vid-4.mp4";
 import video5 from "../videos/vid-5.mp4";
+import contact from "../videos/book-img.svg";
 import { Alert, Button, TextField, Divider } from "@mui/material";
 import { useHistory } from "react-router-dom";
 
@@ -174,8 +175,8 @@ function Welcome() {
               handleAuthentication();
             }}
             className="my-3"
-           sx={{fontSize:"20px"}} 
-           variant="contained"
+            sx={{ fontSize: "20px" }}
+            variant="contained"
           >
             Sign In
           </Button>
@@ -194,57 +195,70 @@ function Welcome() {
           Please post your queries and questions here and we will get back to
           you as soon as possible
         </span>
-        <div className="textFields">
-          <div className="names">
-            <span className="fname">
-              <TextField
-                value={fname}
-                sx={{ width: "100%" }}
-                label="First Name"
-                onChange={(e) => setFname(e.target.value)}
-                color="primary"
-                required
-              />
-            </span>
-            <span className="lname">
-              <TextField
-                value={lname}
-                sx={{ width: "100%" }}
-                onChange={(e) => setLname(e.target.value)}
-                label="Last Name"
-                color="primary"
-              />
+        <div className="contactWrapper">
+          <div className="textFields">
+            <div className="names">
+              <span className="fname">
+                <TextField
+                  value={fname}
+                  sx={{ width: "100%" }}
+                  label="First Name"
+                  onChange={(e) => setFname(e.target.value)}
+                  color="primary"
+                  required
+                />
+              </span>
+              <span className="lname">
+                <TextField
+                  value={lname}
+                  sx={{ width: "100%" }}
+                  onChange={(e) => setLname(e.target.value)}
+                  label="Last Name"
+                  color="primary"
+                />
+              </span>
+            </div>
+            <TextField
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{ marginTop: "20px", marginBottom: "20px" }}
+              label="Email"
+              required
+              color="primary"
+            />
+            <TextField
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+              sx={{ marginBottom: "20px" }}
+              label="Mobile"
+              color="primary"
+            />
+            <TextField
+              sx={{ marginTop: "20px", marginBottom: "20px" }}
+              value={query}
+              required
+              label="Your Query Here"
+              onChange={(e) => setQuery(e.target.value)}
+              color="primary"
+              multiline
+              rows={5}
+            />
+            <span>
+              Reach out to us at :{" "}
+              <a href="mailto:travellopedia@gmail.com">
+                travellopedia@gmail.com
+              </a>
             </span>
           </div>
-          <TextField
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            sx={{ marginTop: "20px", marginBottom: "20px" }}
-            label="Email"
-            required
-            color="primary"
+          <img
+            src={contact}
+            alt=""
+            className="contactImg"
+            style={{
+              width: "400px",
+              height: "500px",
+            }}
           />
-          <TextField
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-            sx={{ marginBottom: "20px" }}
-            label="Mobile"
-            color="primary"
-          />
-          <TextField
-            sx={{ marginTop: "20px", marginBottom: "20px" }}
-            value={query}
-            required
-            label="Your Query Here"
-            onChange={(e) => setQuery(e.target.value)}
-            color="primary"
-            multiline
-            rows={5}
-          />
-          <span>
-            Reach out to us at :{" "}
-            <a href="mailto:travellopedia@gmail.com">travellopedia@gmail.com</a>
-          </span>
         </div>
         <Button
           sx={{ marginLeft: "850px", marginTop: "20px" }}

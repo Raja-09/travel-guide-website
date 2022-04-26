@@ -14,7 +14,7 @@ function Card(props) {
       </div>
       <hr />
       <div className="cardName">
-        <b>{props.name}</b>
+        <b className="stateNameinCards">{props.name}</b>
       </div>
       <div className="cardDesc">{props.description}</div>
     </div>
